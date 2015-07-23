@@ -1,8 +1,8 @@
 /**
  *
- * a complete demo,use subprocess modify hostname
+ * close write fd file and call EOF signal at parent process.
+ * wait recive EOF signal at child process.
  * Usage:gcc main-1-uts.c -o demo2 && ./demo2 && hostname
- * exec demo2 file you will found the host name will modify
  *
  */
 
