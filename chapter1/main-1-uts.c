@@ -1,7 +1,8 @@
 /**
  *
  * a complete demo,use subprocess modify hostname
- * Usage:gcc main-1-uts.c -o demo2 && ./demo2
+ * Usage:gcc main-1-uts.c -o demo2 && ./demo2 && hostname
+ * exec demo2 file you will found the host name will modify
  *
  */
 
@@ -26,7 +27,8 @@ int child_main(void* arg);
  */
 int child_main(void* arg){
 	printf(" - World !\n");
-	sethostname("In Namespace",12);
+	//call set hostname 
+	sethostname("centos7",12);
 	execv(child_args[0],child_args);
 	printf("Ooops\n");
 	return 1;
