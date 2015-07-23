@@ -1,7 +1,7 @@
 /**
  *
- * a complete demo,to start /bin/bash at child process.
- * Usage:gcc main-0-template.c -o demo1 && ./demo1
+ * a complete demo,use subprocess modify hostname
+ * Usage:gcc main-1-uts.c -o demo2 && ./demo2
  *
  */
 
@@ -22,9 +22,11 @@ int child_main(void* arg);
 
 /*
  * child process start shell
+ * and set hostname
  */
 int child_main(void* arg){
 	printf(" - World !\n");
+	sethostname("In Namespace",12);
 	execv(child_args[0],child_args);
 	printf("Ooops\n");
 	return 1;
