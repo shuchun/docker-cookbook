@@ -1,0 +1,16 @@
+---
+#- hosts:SUSEBased
+#  remote_user:root
+#  sudo:yes
+  #tasks: 
+  # - authorized_key:user=root key="{{ lookup('file','/root/.ssh/id_rsa.pub') }}" path=/root/.ssh/authorized_keys manage_dir=no
+- hosts: RHELBased
+  remote_user: root
+  tasks:
+    - authorized_key: user=root key="{{ lookup('file','/root/.ssh/id_rsa.pub') }}" path=/root/.ssh/authorized_keys manage_dir=no
+    - copy: src=/tmp/autoFile/sshPlaybook.yml dest=/tmp/demo/docker-cookbook/chapter10_ansible/sshPlaybook.yml
+#- hosts: RHELBased
+#  remote_user: root
+#  tasks:
+#    - yum: name=httpd state=latest
+#    - shell: hostname

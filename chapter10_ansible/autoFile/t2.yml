@@ -1,0 +1,15 @@
+---
+- hosts: test3
+  vars: 
+    epci: True
+  tasks:
+    - shell: echo "This is Epci"
+      when: epci
+  tasks:
+    - shell: echo "This is not Epci"
+      when: not epci
+      #notify:
+      #  - notify show
+  handlers:
+    #- name: notify show
+    - shell: echo "notify show...."

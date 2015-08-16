@@ -1,0 +1,7 @@
+---
+- hosts: test3
+  tasks:
+    name: "test one"
+    setup: filter=ansible_eth[0-2]
+    register: eth_info
+    ignore_errors: True
